@@ -1,12 +1,3 @@
-build:
-	@go build -o bin/fs
-
-run: build
-	@./bin/fs
-
-test:
-	@go test ./... -v --count 1
-
 GOLANGCI_LINT_CACHE?=/tmp/praktikum-golangci-lint-cache
 
 .PHONY: golangci-lint-run
@@ -38,3 +29,12 @@ _golangci-lint-rm-unformatted-report: _golangci-lint-format-report
 .PHONY: golangci-lint-clean
 golangci-lint-clean:
 	sudo rm -rf ./golangci-lint 
+
+build:
+	@go build -o bin/fs
+
+run: build
+	@./bin/fs
+
+test:
+	@go test ./... -v --count 1
